@@ -2,15 +2,17 @@ import tkinter
 import customtkinter
 
 #------------Calculator Methods---------------#
+
+calculation = ""
 def clearResult():
+    calculation = ""
     pass
 
 def DeleteValue():
     pass
 
 def updateCalculation(value):
-    print(value)
-    
+    pass    
 
 def calculateResult():
     pass
@@ -76,7 +78,17 @@ button_Multiply.grid(row = 2,column = 3,padx = 1, pady = 1)
 button_Plus = customtkinter.CTkButton(app, command = updateCalculation("+"), height = button_y, width = button_x, text = "+",font = ("Arial", 28))
 button_Plus.grid(row = 3,column = 3,padx = 1, pady = 1)
 
-buttonAns = customtkinter.CTkButton(app, command = calculateResult(), height = button_y, width = button_x, text = "=",font = ("Arial", 28))
-buttonAns.grid(row = 4,column = 3, padx = 1, pady = 1)
+buttonMinus = customtkinter.CTkButton(app, command = updateCalculation("-"), height = button_y, width = button_x, text = "-",font = ("Arial", 28))
+buttonMinus.grid(row = 4,column = 3, padx = 1, pady = 1)
 
+#----------------Row 5 added-----------------
+
+button_Left_Bracket = customtkinter.CTkButton(app, command = updateCalculation("("), height = button_y, width = button_x, text = "(",font = ("Arial", 28))
+button_Left_Bracket.grid(row = 5,column = 0,padx = 1, pady = 1)
+
+button_Right_Bracket = customtkinter.CTkButton(app, command = updateCalculation(")"), height = button_y, width = button_x, text = ")",font = ("Arial", 28))
+button_Right_Bracket.grid(row = 5,column = 1,padx = 1, pady = 1)
+
+button_Equals = customtkinter.CTkButton(app, command = updateCalculation("-"), height = button_y, width = button_x, text = "=",font = ("Arial", 28))
+button_Equals.grid(row=5, column=2, columnspan=2,  padx = 1, pady = 1)
 app.mainloop()

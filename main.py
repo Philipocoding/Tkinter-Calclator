@@ -4,6 +4,7 @@ import customtkinter
 #------------Calculator Methods---------------#
 
 calculation = ""
+answer = ""
 def clearResult():
     global calculation
     calculation = ""
@@ -22,18 +23,27 @@ def DeleteValue():
 
 def updateCalculation(value):
     global calculation
-    newCalculation = calculation + str(value)
-    calculation = ""
-    calculation = newCalculation
-    ResultLabel.delete(1.0, "end")
-    ResultLabel.insert("end", calculation)    
+    try:
+        newCalculation = calculation + str(value)
+        calculation = ""
+        calculation = newCalculation
+        ResultLabel.delete(1.0, "end")
+        ResultLabel.insert("end", calculation)   
+    except:
+        ResultLabel.insert(1.0, "Error")   
 
 def calculateResult():
     global calculation
-    result = str(eval(calculation))
-    ResultLabel.delete(1.0, "end")
-    ResultLabel.insert("end", result)    
-    calculation = ""
+    global answer
+    try:
+        answer = str(eval(calculation))
+        ResultLabel.delete(1.0, "end")
+        ResultLabel.insert("end", answer)   
+        calculation = answer
+    except:
+        ResultLabel.delete(1.0, "end")
+        ResultLabel.insert(1.0, "Error")   
+    
 #-----------------UI setup------------------#
 value_x = 354
 value_y = 520
